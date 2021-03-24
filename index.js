@@ -1,8 +1,9 @@
 const WebSocket = require('ws');
+const PORT = process.env.PORT || 3000;
 
 const arduinoSample = 'I am arduino data'
 
-const wss = new WebSocket.Server({ port: 9000 });
+const wss = new WebSocket.Server({ port: PORT });
 
 wss.on("connection", ws => {
   console.log("New Client Connected");
