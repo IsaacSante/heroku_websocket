@@ -9,12 +9,12 @@
 <body>
     <h1>Hello World</h1>
     <script>
-        const ws = new WebSocket("ws://localhost:9000");
+        const ws = new WebSocket("wss://webscoket-unity.herokuapp.com/");
 
         ws.addEventListener("open", () => {
             console.log("We are connected")
 
-            ws.send("Hey How is it going?")
+            ws.send("Hello from Local HTML")
         })
 
         ws.addEventListener("message", e => {
