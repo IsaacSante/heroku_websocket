@@ -12,7 +12,7 @@ wss.on("connection", ws => {
 
   ws.on("message", data => {
     console.log(`Client has sent" + ${data}`)
-    ws.send("Your data is:" + data)
+    // ws.send("Your data is:" + data)
     wss.clients.forEach(function each(client) {
       if (client !== ws && client.readyState === WebSocket.OPEN) {
         client.send('other data:'+ data);
