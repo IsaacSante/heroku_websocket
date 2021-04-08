@@ -12,7 +12,7 @@ wss.on("connection", ws => {
     // ws.send("Your data is:" + data)
     wss.clients.forEach(function each(client) {
       if (client !== ws && client.readyState === WebSocket.OPEN) {
-        data = data.replace(/['"]+/g, '')
+        data = data.toString().replace(/['"]+/g, '')
         client.send(data);
       }
     });
