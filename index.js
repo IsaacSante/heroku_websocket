@@ -8,11 +8,11 @@ wss.on("connection", ws => {
     ws.send('im the Heroku ws server');
 
   ws.on("message", data => {
-    console.log(`Client has sent" + ${data}`)
+    data = data.toString().replace(/['"]+/g, '')
+    console.log(`Client has sent + ${data}`)
     // ws.send("Your data is:" + data)
     wss.clients.forEach(function each(client) {
       if (client !== ws && client.readyState === WebSocket.OPEN) {
-        data = data.toString().replace(/['"]+/g, '')
         client.send(data);
       }
     });
